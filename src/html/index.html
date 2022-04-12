@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Movie Result</title>
+	<link rel="stylesheet" type="text/css" href="./css/movie.css">
+	<script src="./js/movie.js"></script>
+</head>
+<body>
+
+<div class="nav-toggle">
+  <div class="nav-toggle-bar"></div>
+  <img src="../images/scotty-sleepy.png" id="page-logo"/>
+</div>
+
+<nav class="nav">
+  <ul>
+    <li><a href="#menu1" class="nav-item">Menu 1</a></li>
+    <li><a href="#menu2" class="nav-item">Menu 2</a></li>
+    <li><a href="#menu3" class="nav-item">Menu 3</a></li>
+    <li><a href="#menu4" class="nav-item">Menu 4</a></li>
+    <li><a href="#menu5" class="nav-item">Menu 5</a></li>
+    <li><a href="#menu6" class="nav-item">Menu 6</a></li>
+    <li><a href="#menu7" class="nav-item active">Menu 7</a></li>
+  </ul>
+</nav>
+
+<main class="main">
+  <div id="login">
+    <p>Username <span class="down-arrow"></span></p>
+  </div>
+  <div id="content"> 
+    <h1>Header</h1>
+    <section class="section-container"> 
+      <h3 class="sub-header mobile-hide">Sub Header</h3>    
+      <div class="content-columns">
+        <h3 class="sub-header desktop-hide">Sub Header</h3>
+        <!-- append info here dynamically --> 
+        <div class="add-content">
+          <p class="add-content-copy">Add content</p>
+          <div class="plus-circle"></div>
+          <div id="input-box-container"></div>
+        </div>
+      </div>
+
+      <aside class="aside-right">
+        <img src="./images/image1.png" class="explainer-img" />
+          <h2>Explainer</h2>
+          <p class="aside-right--copy">This copy helps you understand what is going on on this page.</p>
+      </aside>
+    </section>
+
+  </div>
+</main>
+
+</body>
+</html>
