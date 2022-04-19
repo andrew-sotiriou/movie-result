@@ -42,7 +42,7 @@ function createImg(imgURL, className, imgAlt, imgTitle){
 }
 
 function fetchData(term){
-	let fetchURL = `http://www.omdbapi.com/?s=${term}&apikey=a4d98298`;
+	let fetchURL = `https://www.omdbapi.com/?s=${term}&apikey=a4d98298`;
 	fetch(fetchURL)
 	.then(response => {
 		return response.json();
