@@ -8,11 +8,13 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'js/movie.bundle.js'
+    filename: 'js/movie.bundle.js',
   },
   mode: 'development',
   plugins: [
-    new MiniCssExtractPlugin(),
+    new MiniCssExtractPlugin({
+      filename: "css/movie.css"
+    }),
     new HtmlWebpackPlugin({
       title: 'movie result',
       template: './src/html/index.html',
@@ -27,10 +29,15 @@ module.exports = {
       },
       {
         test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
-        loader: 'url-loader',
-        // options: {
-        //   name: '/src/images/[name].[ext]'
-        // },
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'images/'
+            }
+          }
+        ]
       },
       {
         test: /\.js$/,
