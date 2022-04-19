@@ -1,3 +1,5 @@
+import "../styles/movie.css"
+
 function processAJAXCalls(object) {
 	let parentDiv = document.getElementsByClassName('content-columns')[0];
 	let childDiv = document.getElementsByClassName('add-content')[0];

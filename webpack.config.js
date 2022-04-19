@@ -1,3 +1,4 @@
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
@@ -7,33 +8,29 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'js/[name].bundle.js'
+    filename: 'js/movie.bundle.js'
   },
+  mode: 'development',
   plugins: [
+    new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
       title: 'movie result',
       template: './src/html/index.html',
       filename: 'index.html' //output file
     })
   ],
-  mode: 'development',
   module: {
     rules: [
       {
-        test: /\.(scss|css)$/i,
-        use: [
-          'style-loader',
-          'css-loader',
-          'sass-loader',
-          'postcss-loader'
-        ]
+        test: /\.css$/i,
+        use: [ MiniCssExtractPlugin.loader, 'css-loader']
       },
       {
         test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
-        loader: 'file-loader',
-        options: {
-          name: '/assets/images/[name].[ext]'
-        },
+        loader: 'url-loader',
+        // options: {
+        //   name: '/src/images/[name].[ext]'
+        // },
       },
       {
         test: /\.js$/,
