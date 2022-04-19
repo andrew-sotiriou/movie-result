@@ -1,4 +1,6 @@
 import "../styles/movie.css"
+import "../images/image1.png"
+import "../images/sleepy-scotty.jpg"
 
 function processAJAXCalls(object) {
 	let parentDiv = document.getElementsByClassName('content-columns')[0];

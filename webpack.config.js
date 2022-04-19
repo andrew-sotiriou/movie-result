@@ -9,6 +9,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'js/movie.bundle.js',
+    assetModuleFilename: "images/[name][ext][query]"
   },
   mode: 'development',
   plugins: [
@@ -29,15 +30,7 @@ module.exports = {
       },
       {
         test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[name].[ext]',
-              outputPath: 'images/'
-            }
-          }
-        ]
+        type: 'asset/resource'
       },
       {
         test: /\.js$/,
