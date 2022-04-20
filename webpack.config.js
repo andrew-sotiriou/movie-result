@@ -12,6 +12,9 @@ module.exports = {
     assetModuleFilename: "images/[name][ext][query]"
   },
   mode: 'development',
+  watchOptions: {
+    poll: 10000 // Check for changes every 10 seconds, this is needed for WSL2
+  },
   plugins: [
     new MiniCssExtractPlugin({
       filename: "css/movie.css"

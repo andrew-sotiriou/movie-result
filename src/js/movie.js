@@ -2,7 +2,7 @@ import "../styles/movie.css"
 import "../images/image1.png"
 import "../images/sleepy-scotty.jpg"
 
-function processAJAXCalls(object) {
+let processAJAXCalls = object => {
 	let parentDiv = document.getElementsByClassName('content-columns')[0];
 	let childDiv = document.getElementsByClassName('add-content')[0];
 	if (object.Response){
@@ -12,7 +12,7 @@ function processAJAXCalls(object) {
 	}
 }
 
-function createDiv(info){
+let createDiv = info => {
 	let	contentBox = document.createElement("div");
 	contentBox.setAttribute("class", 'content-box');
 	let	infoBoxContainer = document.createElement("div");
@@ -24,7 +24,7 @@ function createDiv(info){
     return contentBox;
 }
 
-function createParagraph(text, className){
+let createParagraph = (text, className) => {
 	let	pTag = document.createElement("p");
 	pTag.setAttribute("class", className);
 	let pText = document.createTextNode(text);
@@ -32,7 +32,7 @@ function createParagraph(text, className){
     return pTag;
 }
 
-function createImg(imgURL, className, imgAlt, imgTitle){
+let createImg = (imgURL, className, imgAlt, imgTitle) => {
 	let imgTag = document.createElement("img");
 	imgTag.src = imgURL;
 	imgTag.setAttribute("class", className);
@@ -41,7 +41,7 @@ function createImg(imgURL, className, imgAlt, imgTitle){
 	return imgTag; 
 }
 
-function fetchData(term){
+let fetchData = term => {
 	let fetchURL = `https://www.omdbapi.com/?s=${term}&apikey=a4d98298`;
 	fetch(fetchURL)
 	.then(response => {
@@ -56,13 +56,11 @@ function fetchData(term){
 	});
 }
 
-document.addEventListener("DOMContentLoaded", function(){
+document.addEventListener("DOMContentLoaded", () => {
 	fetchData('coach');
-});
 
-document.addEventListener("DOMContentLoaded", function(){
 	let plusCircle = document.getElementsByClassName("plus-circle")[0];
-	plusCircle.addEventListener('click', function(e) { 
+	plusCircle.addEventListener('click', (e) => { 
 		let inputContainer = document.getElementById("input-box-container");
 		let inputBox = document.createElement("input");
 		inputBox.setAttribute("class", "input-box");
@@ -76,17 +74,13 @@ document.addEventListener("DOMContentLoaded", function(){
         inputBox.focus();
         
 		let orangeSubmit = document.getElementsByClassName("orange-btn")[0];
-		orangeSubmit.addEventListener('click', function() { 
+		orangeSubmit.addEventListener('click', () => { 
 			fetchData(document.getElementsByClassName('input-box')[0].value); 
 			inputContainer.innerHTML = '';
 			addContentDiv.className = "add-content";
 		});
 	});
 
-});
-
-
-document.addEventListener("DOMContentLoaded", function(){
 	let hamburger = {
 		navToggle: document.querySelector('.nav-toggle'),
 		nav: document.querySelector('nav'),
@@ -100,14 +94,14 @@ document.addEventListener("DOMContentLoaded", function(){
 		}
 	};
 
-	hamburger.navToggle.addEventListener('click', function(e) { if (e.target.tagName.toLowerCase() !== 'a') { hamburger.doToggle(e); }});
-});
+	hamburger.navToggle.addEventListener('click', (e) => { 
+		if (e.target.tagName.toLowerCase() !== 'a') { hamburger.doToggle(e); }
+	});
 
-document.addEventListener("DOMContentLoaded", function(){
 	let links = document.getElementsByClassName("nav-item");
 	for (let i = 0; i < links.length; i++) {
 	    let link = links[i];
-	    link.onclick = function () {
+	    link.onclick = () => {
 	        let prev = document.getElementsByClassName("active");
 	        if (prev && prev[0]) {
 	            prev[0].className = "";
